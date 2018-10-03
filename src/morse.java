@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class morse {
 
@@ -246,7 +247,13 @@ public class morse {
 
 		// INICIANDO CODIGO
 		// Cadena donde tendremos que identificar si es morse o normal
-		String Cadena = "hoy";
+		String Cadena;
+		//escanea lo que teclemos en consola
+		Scanner entrada = new Scanner(System.in);
+		//pedimos al usuario que nos diga el caracter que quiera convertir
+		System.out.print("Ingrese la palabra o el morse que quiera convertir: "); 
+		//lo convierte a la variable principal
+		Cadena = entrada.nextLine();
 		// Validador si es morse o normal donde
 		// se identifica con el primer caracter del string
 		if (Character.toString(Cadena.charAt(0)).equals(".") || Character.toString(Cadena.charAt(0)).equals("-")) {
