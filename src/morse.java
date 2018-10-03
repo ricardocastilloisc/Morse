@@ -81,24 +81,39 @@ public class morse {
 					 {" "," "}
 			 };
 	 
-	
+	 //metodo morse el cual hara la convercion de 
+	 //texto a morse, tendra que tener que recibir 
+	 //el  parametro
+	public static String Morse(String Texto) 
+	{
+		//matriz para separa el texto y poder identificar en el 
+		//abecedario uno por uno para hacer la conversion de morse
+		//cadena final que se estara manipulando 
+		String[] matriztexto = Texto.toUpperCase().split("");
+		System.out.println(matriztexto[0]);
+		String CadenaFinal = "";
+		//retornar cadena
+		return CadenaFinal;
+		
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 	//INICIANDO CODIGO
 		//Cadena donde tendremos que identificar si es morse o normal
-		String Cadena ="h";		
+		String Cadena ="hoy";		
 		//Validador si es morse o normal donde 
 		//se identifica con el primer caracter del string 
-		if(Character.toString(Cadena.charAt(0)).equals(".")  || Character.toString(Cadena.charAt(0)).equals("-"))		
-			if(Character.toString(Cadena.charAt(0)).equals(".")  || Character.toString(Cadena.charAt(0)).equals("-"))		
+		if(Character.toString(Cadena.charAt(0)).equals(".")  || Character.toString(Cadena.charAt(0)).equals("-"))					
 		{
-			//si es algunas de las opciones es morse
-			System.out.println("morse");
+			//convertir a normal 
+			System.out.println("PALABRA EN MORSE");
+				
+				
 		}else 
 		{
-			//si no es normal
-			System.out.println("normal");
+			//convertir a morse
+			Morse(Cadena);
 		}
 		;
 	}
