@@ -99,71 +99,67 @@ public class morse {
 			// normal
 			matriztexto = Texto.toUpperCase().split("");
 		} else {
-			
-			//parte morse el cual aqui hay que ajustar ciertas cosas
-			//matrix morse es como se genera la matriz
-			//al tratar de ajustar a la manera normal 
-			//da error en espacio por eso hay saber exactamente cuantas letras
-			//tenemos contando espacios
+
+			// parte morse el cual aqui hay que ajustar ciertas cosas
+			// matrix morse es como se genera la matriz
+			// al tratar de ajustar a la manera normal
+			// da error en espacio por eso hay saber exactamente cuantas letras
+			// tenemos contando espacios
 			int matrizMorse = 0;
-			//el numero de espacios que habra ose "  "
-			//dependiendo a la palabra
+			// el numero de espacios que habra ose " "
+			// dependiendo a la palabra
 			int numeroDEespacios = 0;
-			//una matriz temporal que separa las palabras
-			String temp []  = Texto.split("   ");
-			//se calcula el numero de espacios que habra entre las palabras
-			numeroDEespacios = temp.length-1;
-			//un ciclo donde se calculara cuantas letras hay para poder hacer la matriz
-			for(int acomodo = 0; acomodo<temp.length; acomodo++) 
-			{
-				//se calcula como se va dividiendo un matriz en matiz y dara el resultado 
-				//de cuantas letras tenemos
+			// una matriz temporal que separa las palabras
+			String temp[] = Texto.split("   ");
+			// se calcula el numero de espacios que habra entre las palabras
+			numeroDEespacios = temp.length - 1;
+			// un ciclo donde se calculara cuantas letras hay para poder hacer la matriz
+			for (int acomodo = 0; acomodo < temp.length; acomodo++) {
+				// se calcula como se va dividiendo un matriz en matiz y dara el resultado
+				// de cuantas letras tenemos
 				matrizMorse = matrizMorse + temp[acomodo].split(" ").length;
 			}
-			//cuando tengas el numero total de letras
-			//sumamos los espacios entre las letras
+			// cuando tengas el numero total de letras
+			// sumamos los espacios entre las letras
 			matrizMorse = matrizMorse + numeroDEespacios;
-			//hacemos un array donde ya sabesmos 
-			//exactamete cuantas letras contando el espacio que tendra la clave morse
+			// hacemos un array donde ya sabesmos
+			// exactamete cuantas letras contando el espacio que tendra la clave morse
 			String array[] = new String[matrizMorse];
-			//hacemos conteo para poder saber la pocisiones que esta recorriendo 
+			// hacemos conteo para poder saber la pocisiones que esta recorriendo
 			// el arreglo
-			int recorridoMatrix = 0; 
-			//recorrido del arreglo
+			int recorridoMatrix = 0;
+			// recorrido del arreglo
 			int recorrido = 0;
-			//recorrido principal que dividira las palbras a cada letra
-			while(recorrido<temp.length) 
-			{
-				//un temporal 2 donde solo se utilizara para
-				//extraer las letras
-				String temp2 [] = temp[recorrido].split(" ");
-				//un acomodo que servira para poner
-				//las letras en un arreglo
-				for(int acomodo = 0; acomodo<temp2.length; acomodo++) 
-				{
-					//se ponen las letras extraidas
+			// recorrido principal que dividira las palbras a cada letra
+			while (recorrido < temp.length) {
+				// un temporal 2 donde solo se utilizara para
+				// extraer las letras
+				String temp2[] = temp[recorrido].split(" ");
+				// un acomodo que servira para poner
+				// las letras en un arreglo
+				for (int acomodo = 0; acomodo < temp2.length; acomodo++) {
+					// se ponen las letras extraidas
 					array[recorridoMatrix] = temp2[acomodo];
-					//se sigue el recorrido
-					recorridoMatrix++;		
+					// se sigue el recorrido
+					recorridoMatrix++;
 				}
-				//para no generar conflicto en el arreglo ponemos un medidor
-				//de distancia 
-				if(recorridoMatrix<array.length) 
-				{
-					//al terminar cada ciclo y si hay un espacio 
-					//pones el identificar del abecedario
+				// para no generar conflicto en el arreglo ponemos un medidor
+				// de distancia
+				if (recorridoMatrix < array.length) {
+					// al terminar cada ciclo y si hay un espacio
+					// pones el identificar del abecedario
 					array[recorridoMatrix] = "   ";
-					//seguimos el recorrido
-					recorridoMatrix++;	
-				}				
-				//seguimos el recorrido principal
+					// seguimos el recorrido
+					recorridoMatrix++;
+				}
+				// seguimos el recorrido principal
 				recorrido++;
 			}
-			//si es en morse dividir en 2 por el separador de 3 espacios
-			//System.out.println(Texto.split(" ").length);
-			
+			// si es en morse dividir en 2 por el separador de 3 espacios
+			// System.out.println(Texto.split(" ").length);
+
 			// morse
-			//ajustamos la matriz a la que queremos
+			// ajustamos la matriz a la que queremos
 			matriztexto = array;
 		}
 		;
@@ -187,15 +183,15 @@ public class morse {
 						if (identificadorAbecedario == 0) {
 							// convierte el valor a morse
 							if (matriztexto[recorrido1].equals(" ")) {
-								//evitar que se hagan mas espacios inecesarios
+								// evitar que se hagan mas espacios inecesarios
 								CadenaFinal = CadenaFinal + abecedario[buscador][1];
 							} else {
-								//recorre el siguiente para no poner mas espacios
-								//si es asi no pongas espacio sino lo que es
+								// recorre el siguiente para no poner mas espacios
+								// si es asi no pongas espacio sino lo que es
 								if (matriztexto[recorrido1 + 1].equals(" ")) {
 									CadenaFinal = CadenaFinal + abecedario[buscador][1];
 								} else {
-									//si es normal sigue normal
+									// si es normal sigue normal
 									CadenaFinal = CadenaFinal + abecedario[buscador][1] + " ";
 								}
 
@@ -248,11 +244,11 @@ public class morse {
 		// INICIANDO CODIGO
 		// Cadena donde tendremos que identificar si es morse o normal
 		String Cadena;
-		//escanea lo que teclemos en consola
+		// escanea lo que teclemos en consola
 		Scanner entrada = new Scanner(System.in);
-		//pedimos al usuario que nos diga el caracter que quiera convertir
-		System.out.print("Ingrese la palabra o el morse que quiera convertir: "); 
-		//lo convierte a la variable principal
+		// pedimos al usuario que nos diga el caracter que quiera convertir
+		System.out.print("Ingrese la palabra o el morse que quiera convertir: ");
+		// lo convierte a la variable principal
 		Cadena = entrada.nextLine();
 		// Validador si es morse o normal donde
 		// se identifica con el primer caracter del string
